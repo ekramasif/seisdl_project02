@@ -1,0 +1,41 @@
+CREATE TABLE admin(
+    email varchar(255),
+    password varchar(255)
+);
+CREATE TABLE student(
+    name varchar(255),
+    id varchar(255) PRIMARY KEY,
+    deparment varchar(255),
+    semester varchar(255),
+    address varchar(255),
+    phone varchar(255),
+    email varchar(255),
+    password varchar(255)
+);
+CREATE TABLE teacher(
+    name varchar(255),
+    id varchar(255) PRIMARY KEY,
+    deparment varchar(255),
+    address varchar(255),
+    phone varchar(255),
+    email varchar(255),
+    password varchar(255)
+);
+CREATE TABLE course(
+    title varchar(255),
+    code varchar(255) PRIMARY KEY,
+    credit int(20)
+);
+CREATE TABLE stdenroll(
+    id varchar(255) PRIMARY KEY,
+    course_code varchar(255),
+    session varchar(255),
+    FOREIGN KEY (id) REFERENCES student(id)
+);
+CREATE TABLE tenroll(
+    id varchar(255) PRIMARY KEY,
+    course_code varchar(255),
+    session varchar(255),
+    FOREIGN KEY (id) REFERENCES teacher(id)
+);
+INSERT INTO `admin`(`email`, `password`) VALUES ('admin@gmail.com',MD5('admin'));
